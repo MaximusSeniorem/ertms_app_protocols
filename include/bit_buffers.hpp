@@ -60,7 +60,7 @@ namespace bb{
             T val_shifted = val << (t_len - val_len);
             if constexpr (std::endian::native == std::endian::little)
                 val_shifted = std::byteswap(val_shifted);
-            return write(std::as_bytes(val_shifted), sizeof(T), val_len);
+            return write(std::as_bytes(std::span{&val_shifted, 1}), sizeof(T), val_len);
         }
 
     private:
