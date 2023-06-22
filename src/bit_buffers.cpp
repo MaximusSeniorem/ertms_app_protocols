@@ -78,7 +78,6 @@ namespace bb{
             const std::size_t index = this->m_offset / CHAR_BIT;
             std::uint8_t loc_shift = this->m_offset % CHAR_BIT;
             const std::uint8_t t_len = val_size * CHAR_BIT;
-            auto val_ptr = std::as_bytes(std::span{&val_shifted, 1});
 
             //buffer overflow
             if(this->m_offset + val_len >= this->m_bsize){
